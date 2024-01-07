@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 27, 2023 at 03:37 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Waktu pembuatan: 07 Jan 2024 pada 10.14
+-- Versi server: 10.4.32-MariaDB
+-- Versi PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `account`
+-- Struktur dari tabel `account`
 --
 
 CREATE TABLE `account` (
@@ -36,17 +36,17 @@ CREATE TABLE `account` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `account`
+-- Dumping data untuk tabel `account`
 --
 
 INSERT INTO `account` (`id`, `username`, `fullname`, `email`, `password`) VALUES
-(1, 'duwianjar', 'Duwi Anjar Ariwibowo', 'duwianjarariwibowo@gmail.com', '4079568ce1127c733d58264a8ec047eb'),
-(18, 'admin', 'admin', 'admin@gmail.com', '21232f297a57a5a743894a0e4a801fc3');
+(18, 'admin', 'admin', 'admin@gmail.com', '21232f297a57a5a743894a0e4a801fc3'),
+(19, 'mutia', 'mutia maharani', 'mutiamaharani434@gmail.com', '349fc82a69305cda33090e2f32934cf5');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `book`
+-- Struktur dari tabel `book`
 --
 
 CREATE TABLE `book` (
@@ -59,20 +59,20 @@ CREATE TABLE `book` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `book`
+-- Dumping data untuk tabel `book`
 --
 
 INSERT INTO `book` (`id`, `title`, `author`, `publisher`, `amount`, `photo_filename`) VALUES
 (1, 'Humor Informatika', 'Ariwibowo', 'Republika', 5, 'Humor Informatika_20231226_084031.jpg'),
-(2, 'Laskar Pelangi', 'Andrea Hirata', 'Bentang Pustaka', 14, 'Laskar Pelangi_20231226_083807.png'),
-(3, 'Ayat-Ayat Cinta', 'Habiburrahman El Shirazy', 'Republika', 13, 'Ayat-Ayat Cinta_20231226_083821.jpg'),
+(2, 'Laskar Pelangi', 'Andrea Hirata', 'Bentang Pustaka', 15, 'Laskar Pelangi_20231226_083807.png'),
+(3, 'Ayat-Ayat Cinta', 'Habiburrahman El Shirazy', 'Republika', 15, 'Ayat-Ayat Cinta_20231226_083821.jpg'),
 (4, 'Bumi Manusia', 'Pramoedya Ananta Toer', 'Hasta Mitra', 12, 'Bumi Manusia_20231226_083907.jpg'),
 (5, 'Cinta di Dalam Gelas', 'Andrea Hirata', 'Bentang Pustaka', 20, 'Cinta di Dalam Gelas_20231226_083950.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `borrowing`
+-- Struktur dari tabel `borrowing`
 --
 
 CREATE TABLE `borrowing` (
@@ -85,15 +85,16 @@ CREATE TABLE `borrowing` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `borrowing`
+-- Dumping data untuk tabel `borrowing`
 --
 
 INSERT INTO `borrowing` (`id`, `borrower_id`, `book_id`, `loan_date`, `return_date`, `status`) VALUES
+(22, 21, 3, '2024-01-07', '2024-01-14', 'Sudah Kembali');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `member`
+-- Struktur dari tabel `member`
 --
 
 CREATE TABLE `member` (
@@ -106,29 +107,31 @@ CREATE TABLE `member` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `member`
+-- Dumping data untuk tabel `member`
 --
 
 INSERT INTO `member` (`id`, `fullname`, `address`, `phone_number`, `gender`, `photo_filename`) VALUES
+(21, 'Hilmi Rahmawati', 'Desa Singajaya Kab.Garut', '+6287975746674', 'perempuan', 'Hilmi Rahmawati_20240107_034920.jpeg'),
+(22, 'Vanitas Crat', 'jl.isekai ', '+6289065432176', 'laki-laki', 'Vanitas Crat_20240107_044228.jpg');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `account`
+-- Indeks untuk tabel `account`
 --
 ALTER TABLE `account`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `book`
+-- Indeks untuk tabel `book`
 --
 ALTER TABLE `book`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `borrowing`
+-- Indeks untuk tabel `borrowing`
 --
 ALTER TABLE `borrowing`
   ADD PRIMARY KEY (`id`),
@@ -136,45 +139,45 @@ ALTER TABLE `borrowing`
   ADD KEY `book_id` (`book_id`);
 
 --
--- Indexes for table `member`
+-- Indeks untuk tabel `member`
 --
 ALTER TABLE `member`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `account`
+-- AUTO_INCREMENT untuk tabel `account`
 --
 ALTER TABLE `account`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT for table `book`
+-- AUTO_INCREMENT untuk tabel `book`
 --
 ALTER TABLE `book`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT for table `borrowing`
+-- AUTO_INCREMENT untuk tabel `borrowing`
 --
 ALTER TABLE `borrowing`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT for table `member`
+-- AUTO_INCREMENT untuk tabel `member`
 --
 ALTER TABLE `member`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `borrowing`
+-- Ketidakleluasaan untuk tabel `borrowing`
 --
 ALTER TABLE `borrowing`
   ADD CONSTRAINT `borrowing_ibfk_1` FOREIGN KEY (`borrower_id`) REFERENCES `member` (`id`),
